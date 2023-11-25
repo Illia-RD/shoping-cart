@@ -1,0 +1,128 @@
+/* Reset styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+/* Загальні стилі */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Стилі для форми */
+.shoping-cart-form {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Стилі для елементів форми */
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+select,
+input,
+button {
+  margin-bottom: 10px;
+  padding: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.delivery-method {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.delivery-label {
+  display: block;
+}
+.delivery-btn {
+  width: 20px;
+  height: 20px;
+}
+/* Стилі для кнопки "Підрахувати" */
+.calc-total-btn {
+  background-color: #4caf50;
+  color: #fff;
+  cursor: pointer;
+}
+
+/*  Виключена кнопка */
+.calc-total-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Стилі для радіокнопок та чекбокса */
+.delivery-post,
+.delivery-home,
+.festive-packaging {
+  margin-right: 5px;
+}
+/* 
+ Стилі для виведення ціни */
+.book-price {
+  span {
+    font-weight: bold;
+  }
+}
+
+/* Стилі для загальної вартості замовлення */
+.total-price {
+  span {
+    font-weight: bold;
+  }
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}

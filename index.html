@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+      integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <section>
+      <form action="" class="shoping-cart-form" name="myForm">
+        <div class="book-order">
+          <label for="book-select">Назва товару</label>
+          <select name="bookName" type="text" id="book-select" class="book-name" required>
+            <option value="" data-price="0" disabled selected>виберіть книгу</option>
+            <option name="shadow" value="shadow" class="select-option" data-price="10.5">
+              Тіні забутих предків
+            </option>
+            <option name="kobzar" value="kobzar" class="select-option" data-price="10.5">
+              Кобзар
+            </option>
+            <option
+              name="kharakternyk"
+              value="kharakternyk"
+              class="select-option"
+              data-price="10.5"
+            >
+              Характерник
+            </option>
+            <option name="eneyida" value="eneyida" class="select-option" data-price="10.5">
+              Енеїда
+            </option>
+            <option name="war" value="war" class="select-option" data-price="10.5">Війна</option>
+          </select>
+
+          <label for="numerosity">Кількість</label>
+          <input
+            name="numerosity"
+            type="number"
+            id="numerosity"
+            class="book-numerosity"
+            min="1"
+            value="1"
+            required
+          />
+
+          <p id="price" class="book-price">Ціна: <span class="book-price-output">0</span></p>
+        </div>
+        <div class="delivery-method">
+          <label for="post" class="delivery-label">Доставка на пошту</label>
+          <input
+            name="delivery"
+            type="radio"
+            id="post"
+            class="delivery-post delivery-btn"
+            checked
+          />
+          <label for="home" class="delivery-label">Доставка додому</label>
+          <input name="delivery" type="radio" id="home" class="delivery-home delivery-btn" />
+
+          <label for="packaging" class="delivery-label">Святкове пакування</label>
+          <input
+            name="packaging"
+            type="checkbox"
+            id="packaging"
+            value="packaging"
+            class="festive-packaging delivery-btn"
+          />
+        </div>
+        <div class="total-price-wrap">
+          <p class="total-price">
+            Загальна вартість замовлення<span class="total-price-output">0</span>
+          </p>
+          <button type="button" class="calc-total-btn btn">Підрахувати</button>
+        </div>
+        <div class="customer-data">
+          <label for="user-name">Ім'я</label>
+          <input name="user-name" type="text" id="user-name" class="customer-name" required />
+          <label for="user-surname">Прізвище</label>
+          <input
+            name="user-surname"
+            type="text"
+            id="user-surname"
+            class="customer-surname"
+            required
+          />
+
+          <label for="user-adress">Адреса доставки</label>
+          <input name="user-adress" type="text" id="user-adress" class="customer-adress" required />
+        </div>
+        <button type="submit" class="order-btn btn" disabled>Замовити</button>
+      </form>
+    </section>
+    <section>
+      <table id="orderTable" class="order-table">
+        <thead>
+          <tr>
+            <th class="table-header">Дата</th>
+            <th class="table-header">Назва товару</th>
+            <th class="table-header">Кількість</th>
+            <th class="table-header">Тип пакування</th>
+            <th class="table-header">Ім'я</th>
+            <th class="table-header">Прізвище</th>
+
+            <th class="table-header">Тип доставки</th>
+            <th class="table-header">Адреса доставки</th>
+            <th class="table-header">Ціна</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Тут будуть дані -->
+        </tbody>
+      </table>
+    </section>
+    <script type="module" src="./js/shopingCard.js"></script>
+    <script src="./js/createOrder.js"></script>
+  </body>
+</html>
