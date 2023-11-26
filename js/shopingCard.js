@@ -1,11 +1,13 @@
 // shoping-cart.js
 
+// Отримання посилань на елементи DOM
 const myForm = document.querySelector('.shoping-cart-form');
 const booksPrice = document.querySelector('.book-price-output');
 const totalPrice = document.querySelector('.total-price-output');
 const calcTotalBtn = document.querySelector('.calc-total-btn');
 const orderBtn = document.querySelector('.order-btn');
 
+// Об'єкт корзини зі змінними для зберігання обраної книги та інших параметрів
 let cart = {
   bookName: '',
   bookNum: 1,
@@ -20,6 +22,7 @@ let cart = {
   basePrice: 0,
 };
 
+// Функція для обробки подій при зміні елементів форми
 function order(event) {
   const target = event.target;
 
@@ -29,7 +32,6 @@ function order(event) {
 
       const cartPrice = parseFloat(target[target.selectedIndex].dataset.price);
       cart.basePrice = cartPrice;
-
       break;
 
     case 'numerosity':
@@ -74,12 +76,13 @@ function order(event) {
   }
 }
 
+// Функція для обчислення ціни за книгу
 function calc() {
   cart.bookPrice = cart.basePrice * cart.bookNum;
   booksPrice.textContent = cart.bookPrice.toFixed(2);
 }
-// if (totalPrice > 0) orderBtn.disabled = false;
 
+// Функція для обчислення загальної вартості замовлення
 function calcTotal() {
   const basePrice = cart.bookPrice;
 
@@ -99,6 +102,46 @@ function calcTotal() {
   totalPrice.textContent = cart.total.toFixed(2);
 }
 
+// createOrder.js
+
+// Функція для відправки форми та відображення замовлення
+function submitForm(event) {
+  // Створення об'єкта із зразковими даними для замовлення
+  const sampleData = {
+    date: new Date().toLocaleDateString(),
+    productName: cart.bookName,
+    quantity: cart.bookNum,
+    packagingType: cart.packaging ? 'Звичайне пакування' : 'Подарункове пакування',
+    firstName: cart.userName,
+    lastName: cart.userSurname,
+    deliveryType: cart.delPost || cart.delHome ? 'доставка на пошту' : 'доставка до дому',
+    userAdress: cart.userAdress,
+    price: cart.total.toFixed(2),
+  };
+
+  // Додавання рядка до таблиці замовлень
+  addRowToTable(sampleData);
+
+  // Очищення форми
+  event.preventDefault();
+
+  orderBtn.disabled = false;
+}
+
+// Функція для додавання рядка до таблиці
+function addRowToTable(data) {
+  const table = document.getElementById('orderTable').getElementsByTagName('tbody')[0];
+  const newRow = table.insertRow(table.rows.length);
+
+  for (const value of Object.values(data)) {
+    const cell = newRow.insertCell();
+    cell.appendChild(document.createTextNode(value));
+  }
+
+  myForm.reset();
+}
+
+// Додавання слухачів подій до форми та кнопок
 myForm.addEventListener('change', order);
 calcTotalBtn.addEventListener('click', calcTotal);
 myForm.addEventListener('submit', submitForm);
